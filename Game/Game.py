@@ -17,14 +17,12 @@ class Game:
 
     def shuffle(self) -> None:
         new_deck = [None]*108
-        indexes = list(range(108))
+        indexes = list(range(len(self.deck)))
 
         for card in self.deck:
-            index = random.choice(indexes)
-            i = indexes.index(index)
-
+            i = random.randint(0, len(indexes)-1)
+            new_deck[indexes[i]] = card
             del indexes[i]
-            new_deck[index] = card
 
         self.deck = new_deck
 
